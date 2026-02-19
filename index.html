@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Event Rentals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Party & Event Rentals</h1>
+        <p>Chairs, Tables, and Elegant Decor for Your Big Day</p>
+    </header>
+
+    <section class="services-container">
+        <!-- Chair Rental Card -->
+        <div class="service-card">
+            <img src="chairs.jpg" alt="Chair Rentals">
+            <h3>Chair Rentals</h3>
+            <p>From folding chairs to elegant Chiavari styles.</p>
+            <span class="price">Starting at $2.50/ea</span>
+            <button>View Catalog</button>
+        </div>
+
+        <!-- Table Rental Card -->
+        <div class="service-card">
+            <img src="tables.jpg" alt="Table Rentals">
+            <h3>Table Rentals</h3>
+            <p>Round, rectangular, and high-top cocktail tables.</p>
+            <span class="price">Starting at $10.00/ea</span>
+            <button>View Catalog</button>
+        </div>
+
+        <!-- Decor Services Card -->
+        <div class="service-card">
+            <img src="decor.jpg" alt="Decor Services">
+            <h3>Decor Services</h3>
+            <p>Backdrops, linens, and custom centerpieces.</p>
+            <span class="price">Custom Quotes Available</span>
+            <button>Inquire Now</button>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Wraps items on smaller screens */
+    gap: 20px;
+    padding: 40px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Keeps images from stretching */
+    border-radius: 4px;
+}
+
+.price {
+    display: block;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+// Function to calculate total for a specific item
+function calculateTotal(itemId, price) {
+    const quantity = document.getElementById(itemId + '-qty').value;
+    const display = document.getElementById(itemId + '-total');
+    
+    if (quantity > 0) {
+        const total = (quantity * price).toFixed(2);
+        display.innerText = "Total: $" + total;
+    } else {
+        display.innerText = "";
+    }
+}
+
+// Simple alert when someone clicks "Rent Now"
+document.querySelectorAll('.rent-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        alert("Added to your inquiry! Please fill out the contact form below to finalize.");
+        document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'});
+    });
+});
+
+
+
+
+<form action="https://formspree.io" method="POST">
+    <label>Rental Date:</label>
+    <input type="date" name="event-date" required>
+    
+    <label>Equipment Needed:</label>
+    <textarea name="items" placeholder="e.g. 50 chairs, 10 tables"></textarea>
+    
+    <button type="submit">Send Booking Request</button>
+</form>
