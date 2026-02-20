@@ -2,274 +2,376 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aura Events Rentals</title>
+<title>Aura Event</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style>
 
-:root{
---gold:#caa64b;
---dark:#1c2430;
---light:#f5f7fb;
-}
+/* ---------- GLOBAL ---------- */
 
 body{
-font-family:Segoe UI, sans-serif;
 margin:0;
-background:var(--light);
-scroll-behavior:smooth;
+font-family:Segoe UI, sans-serif;
+background:#f6f7fb;
 }
 
-/* HEADER */
+a{text-decoration:none;color:inherit}
 
-header{
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url("decor.jpg") center/cover;
-color:white;
-text-align:center;
-padding:90px 20px;
-}
+.container{max-width:1200px;margin:auto;padding:0 20px}
 
-header h1{font-size:44px;margin:0}
-header p{opacity:.9;margin-top:10px}
+/* ---------- NAVBAR ---------- */
 
-/* SECTION STYLE */
-
-section{padding:70px 20px;text-align:center}
-h2{color:var(--dark);margin-bottom:40px}
-
-/* CARDS */
-
-.container{
+nav{
+background:white;
 display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.logo span{
+display:block;
+font-size:12px;
+color:#777;
+font-weight:normal;
+}
+
+.nav-right{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.email{color:#555;font-size:14px}
+
+.btn{
+background:#caa64b;
+color:white;
+padding:10px 18px;
+border-radius:25px;
+}
+
+/* ---------- HERO CAROUSEL ---------- */
+
+.hero{
+height:70vh;
+position:relative;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:1s;
+}
+
+.slide.active{opacity:1}
+
+.hero-text{
+position:absolute;
+bottom:50px;
+left:50%;
+transform:translateX(-50%);
+color:white;
+font-size:34px;
+background:rgba(0,0,0,.4);
+padding:15px 25px;
+border-radius:8px;
+}
+
+/* ---------- HIGHLIGHT ---------- */
+
+.highlight{
+text-align:center;
+font-size:28px;
+padding:40px 20px;
+font-weight:600;
+}
+
+/* ---------- SERVICE TILES ---------- */
+
+.tiles{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+padding:30px;
 max-width:1100px;
 margin:auto;
 }
 
-.card{
+.tile{
 background:white;
-width:300px;
-border-radius:14px;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
+border-radius:12px;
 overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 transition:.3s;
 }
 
-.card:hover{transform:translateY(-8px)}
+.tile:hover{transform:translateY(-6px)}
 
-.card img{
+.tile img{
 width:100%;
-height:200px;
+height:170px;
 object-fit:cover;
 }
 
-.card-content{padding:18px}
+.tile h3{padding:15px}
 
-.price{font-weight:bold;margin:10px 0}
+/* ---------- REVIEWS ---------- */
 
-button{
-background:var(--gold);
-color:white;
+.reviews{
+background:#eef1f7;
+padding:60px 20px;
+text-align:center;
+}
+
+.review{
+display:none;
+max-width:700px;
+margin:auto;
+font-style:italic;
+}
+
+.review.active{display:block}
+
+/* ---------- INTRO ---------- */
+
+.intro{
+padding:70px 20px;
+text-align:center;
+max-width:800px;
+margin:auto;
+}
+
+.intro ul{
+text-align:left;
+display:inline-block;
+margin-top:20px;
+}
+
+.intro button{
+margin-top:20px;
+background:#caa64b;
 border:none;
-padding:12px 24px;
-border-radius:30px;
-cursor:pointer;
-font-size:15px;
-transition:.25s;
+padding:12px 22px;
+color:white;
+border-radius:25px;
 }
 
-button:hover{
-transform:scale(1.05);
-box-shadow:0 10px 18px rgba(0,0,0,.2);
+/* ---------- CONTACT ---------- */
+
+.contact{
+background:#eef1f7;
+padding:70px 20px;
+text-align:center;
 }
 
-/* FORMS */
-
-.form-box{
-background:white;
-max-width:450px;
-margin:30px auto;
-padding:30px;
-border-radius:14px;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-
-input,textarea{
-width:95%;
-padding:10px;
-margin-top:6px;
+.contact input,
+.contact textarea{
+width:90%;
+max-width:500px;
+padding:12px;
+margin:8px 0;
 border-radius:8px;
 border:1px solid #ccc;
-font-size:14px;
 }
 
-.success{
-display:none;
-color:green;
-font-weight:bold;
-margin-top:12px;
-}
+/* ---------- FOOTER ---------- */
 
 footer{
-background:var(--dark);
+background:#1d2430;
 color:white;
+padding:40px 20px;
 text-align:center;
-padding:25px;
 }
+
+footer a{display:block;margin:5px 0;color:#ddd}
 
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Aura Events</h1>
-<p>Premium Rentals & Elegant Decor for Weddings and Events</p>
-<button onclick="scrollToSection('rentals')">View Rentals</button>
-<button onclick="scrollToSection('decor')">View Decor</button>
-</header>
-
-<!-- RENTALS -->
-<section id="rentals">
-<h2>Rental Equipment</h2>
-
-<div class="container">
-
-<div class="card">
-<img src="chair.jpg">
-<div class="card-content">
-<h3>Chair Rentals</h3>
-<p>Elegant folding & wedding chairs</p>
-<div class="price">$2.50+</div>
-<button onclick="scrollToSection('rentals-book')">Book Chairs</button>
-</div>
+<!-- NAV -->
+<nav>
+<div class="logo">
+Aura Event
+<span>Full Service Event Planning</span>
 </div>
 
-<div class="card">
-<img src="table.jpg">
-<div class="card-content">
-<h3>Table Rentals</h3>
-<p>Round, banquet & cocktail tables</p>
-<div class="price">$10+</div>
-<button onclick="scrollToSection('rentals-book')">Book Tables</button>
-</div>
-</div>
+<div class="nav-right">
+<div class="email">info@auraevent.com</div>
 
+<a href="planning.html">Event Planning & Decoration</a>
+<a href="rentals.html">Party Rentals</a>
+<a href="work.html">Our Work</a>
+
+<a class="btn" href="planning.html">Get Started</a>
 </div>
-</section>
+</nav>
 
-<!-- DECOR -->
-<section id="decor" style="background:#eef1f7">
-<h2>Decor Services</h2>
+<!-- HERO -->
+<div class="hero">
 
-<div class="container">
+<div class="slide active" style="background-image:url('hero1.jpg')"></div>
+<div class="slide" style="background-image:url('hero2.jpg')"></div>
+<div class="slide" style="background-image:url('hero3.jpg')"></div>
 
-<div class="card">
-<img src="decor.jpg">
-<div class="card-content">
-<h3>Backdrop & Stage Decor</h3>
-<p>Custom elegant setups</p>
-<button onclick="scrollToSection('decor-book')">Book Decor</button>
-</div>
+<div class="hero-text">Aura Event Planning, Decoration & Rental</div>
+
 </div>
 
-<div class="card">
-<img src="decor2.jpg">
-<div class="card-content">
-<h3>Centerpieces & Styling</h3>
-<p>Luxury table styling packages</p>
-<button onclick="scrollToSection('decor-book')">Book Styling</button>
-</div>
+<!-- HIGHLIGHT -->
+<div class="highlight">
+Aura Event Planning, Decoration & Rental
 </div>
 
+<!-- SERVICE TILES -->
+<div class="tiles">
+
+<a class="tile" href="wedding.html">
+<img src="wedding.jpg">
+<h3>Wedding Planning</h3>
+</a>
+
+<a class="tile" href="anniversary.html">
+<img src="anniversary.jpg">
+<h3>Milestone Anniversary</h3>
+</a>
+
+<a class="tile" href="birthday.html">
+<img src="birthday.jpg">
+<h3>Milestone Birthday</h3>
+</a>
+
+<a class="tile" href="holiday.html">
+<img src="holiday.jpg">
+<h3>Holiday Party & Celebration</h3>
+</a>
+
+<a class="tile" href="appreciation.html">
+<img src="appreciation.jpg">
+<h3>Appreciation Event</h3>
+</a>
+
+<a class="tile" href="rentals.html">
+<img src="rentals.jpg">
+<h3>Party Rentals</h3>
+</a>
+
 </div>
-</section>
 
-<!-- RENTAL BOOKING -->
-<section id="rentals-book">
-<h2>Book Rentals</h2>
+<!-- REVIEWS -->
+<div class="reviews">
 
-<div class="form-box">
+<h2>Client Reviews</h2>
 
-<form onsubmit="sendMail(event,'Rental Booking')">
+<div class="review active">“Aura Events made our wedding magical and stress-free!”</div>
+<div class="review">“Beautiful decor and very professional team.”</div>
+<div class="review">“Everything looked stunning and perfectly organized.”</div>
 
-<label>Name</label><br>
-<input required id="rname"><br><br>
+</div>
 
-<label>Email</label><br>
-<input type="email" required id="remail"><br><br>
+<!-- INTRO -->
+<div class="intro">
 
-<label>Date</label><br>
-<input type="date" required id="rdate"><br><br>
+<h2>Elevating Every Moment</h2>
 
-<label>Items Needed</label><br>
-<textarea required id="ritems"></textarea><br><br>
+<p>
+We believe that every celebration should be as unique as the person behind it.
+Whether you are dreaming a grand wedding or an intimate dinner party,
+we bring the vision, the décor and the ease.
+</p>
 
-<button type="submit">Send Rental Request</button>
+<p>Here are just some services we offer:</p>
 
-<div class="success">✔ Email ready to send!</div>
+<ul>
+<li>Event design</li>
+<li>Event décor</li>
+<li>Event party rentals</li>
+<li>Budgeting</li>
+<li>Catering vendors</li>
+<li>Photography vendors</li>
+<li>Video production vendors</li>
+</ul>
 
+<a href="services.html">
+<button>Learn more about our services</button>
+</a>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+
+<h2>Contact Us</h2>
+
+<form onsubmit="sendMail(event)">
+<input placeholder="Your Name" required><br>
+<input type="email" placeholder="Your Email" required><br>
+<input placeholder="Phone"><br>
+<textarea placeholder="Event or project details" required></textarea><br>
+<input placeholder="How did you hear about us?"><br>
+
+<button type="submit" class="btn">Submit</button>
 </form>
 
 </div>
-</section>
 
-<!-- DECOR BOOKING -->
-<section id="decor-book" style="background:#eef1f7">
-<h2>Book Decor</h2>
-
-<div class="form-box">
-
-<form onsubmit="sendMail(event,'Decor Booking')">
-
-<label>Name</label><br>
-<input required id="dname"><br><br>
-
-<label>Email</label><br>
-<input type="email" required id="demail"><br><br>
-
-<label>Date</label><br>
-<input type="date" required id="ddate"><br><br>
-
-<label>Decor Details</label><br>
-<textarea required id="ddetails"></textarea><br><br>
-
-<button type="submit">Send Decor Request</button>
-
-<div class="success">✔ Email ready to send!</div>
-
-</form>
-
-</div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-© 2026 Aura Events LLC
+
+<h3>Aura Event</h3>
+
+<a href="planning.html">Event Planning & Decoration</a>
+<a href="rentals.html">Party Rentals</a>
+<a href="work.html">Our Work</a>
+<a href="services.html">Services</a>
+<a href="#">Contact Us</a>
+<a href="#">About Us</a>
+
+<p>Follow us on social media</p>
+
 </footer>
 
 <script>
 
-function scrollToSection(id){
-document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
+/* HERO ROTATION */
+let slides=document.querySelectorAll(".slide");
+let i=0;
+setInterval(()=>{
+slides[i].classList.remove("active");
+i=(i+1)%slides.length;
+slides[i].classList.add("active");
+},4000);
 
-function sendMail(e,type){
+/* REVIEW ROTATION */
+let reviews=document.querySelectorAll(".review");
+let r=0;
+setInterval(()=>{
+reviews[r].classList.remove("active");
+r=(r+1)%reviews.length;
+reviews[r].classList.add("active");
+},5000);
 
+/* CONTACT FORM EMAIL */
+function sendMail(e){
 e.preventDefault();
-
-let inputs=e.target.querySelectorAll("input,textarea");
-let body=type+"\n\n";
-
-inputs.forEach(i=>{
-body+=i.previousElementSibling.innerText+": "+i.value+"\n";
-});
-
 window.location.href=
-`mailto:agrawal.avisha04@gmail.com?subject=${encodeURIComponent(type)}&body=${encodeURIComponent(body)}`;
-
-e.target.querySelector(".success").style.display="block";
+"mailto:info@auraevent.com?subject=Website Inquiry";
 }
 
 </script>
