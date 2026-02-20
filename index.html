@@ -1,56 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Party & Event Rentals</title>
-    <style>
-        /* This is the CSS section */
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f9f9f9; text-align: center; }
-        header { background-color: #333; color: white; padding: 2rem; }
-        .services-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 40px; }
-        .service-card { background: white; border: 1px solid #ddd; border-radius: 8px; width: 300px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .service-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
-        .price { display: block; font-weight: bold; color: #2c3e50; margin: 10px; }
-        button { background-color: #e67e22; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        form { background: white; padding: 20px; display: inline-block; border-radius: 8px; margin-top: 20px; border: 1px solid #ddd; }
-    </style>
+<meta charset="UTF-8">
+<title>Aura Events Rentals</title>
+
+<style>
+
+:root{
+--brand:#c89b3c;
+--dark:#1f2a38;
+--light:#f6f8fb;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+margin:0;
+background:var(--light);
+text-align:center;
+}
+
+header{
+background:var(--dark);
+color:white;
+padding:30px 20px;
+}
+
+.logo{
+height:70px;
+margin-bottom:10px;
+}
+
+.services-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+padding:50px 20px;
+}
+
+.service-card{
+background:white;
+border-radius:14px;
+width:320px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+}
+
+.service-card img{
+width:100%;
+height:210px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.price{
+display:block;
+font-weight:bold;
+font-size:18px;
+margin:12px 0;
+}
+
+button{
+background:var(--brand);
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:30px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+opacity:.9;
+}
+
+form{
+background:white;
+padding:30px;
+border-radius:14px;
+margin:40px auto;
+width:90%;
+max-width:420px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+input,textarea{
+width:92%;
+padding:10px;
+margin-top:6px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+.success{
+color:green;
+font-weight:bold;
+margin-top:15px;
+display:none;
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Party & Event Rentals</h1>
-        <p>Chairs, Tables, and Elegant Decor for Your Big Day</p>
-    </header>
+<header>
 
-    <section class="services-container">
-        <div class="service-card">
-            <h3>Chair Rentals</h3>
-            <p>From folding chairs to elegant styles.</p>
-            <span class="price">Starting at $2.50/ea</span>
-            <button class="rent-btn">Inquire Now</button>
-        </div>
-        <div class="service-card">
-            <h3>Table Rentals</h3>
-            <p>Round, rectangular, and high-top tables.</p>
-            <span class="price">Starting at $10.00/ea</span>
-            <button class="rent-btn">Inquire Now</button>
-        </div>
-    </section>
+<img src="logo.png" class="logo" alt="Aura Events Logo">
 
-    <form id="contact-form">
-        <h3>Send Booking Request</h3>
-        <label>Rental Date:</label> <input type="date"> <br><br>
-        <label>Equipment Needed:</label> <textarea placeholder="e.g. 50 chairs"></textarea> <br><br>
-        <button type="button" onclick="alert('Request Sent!')">Send Request</button>
-    </form>
+<h1>Aura Events Rentals</h1>
+<p>Elegant Chairs • Tables • Decor</p>
 
-    <script>
-        // This is the JavaScript section
-        document.querySelectorAll('.rent-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'});
-            });
-        });
-    </script>
+</header>
+
+<section class="services-container">
+
+<div class="service-card">
+<img src="chair.jpg">
+<h3>Chair Rentals</h3>
+<span class="price">Starting $2.50</span>
+<button class="rent-btn">Book</button>
+</div>
+
+<div class="service-card">
+<img src="table.jpg">
+<h3>Table Rentals</h3>
+<span class="price">Starting $10</span>
+<button class="rent-btn">Book</button>
+</div>
+
+<div class="service-card">
+<img src="decor.jpg">
+<h3>Decor Packages</h3>
+<span class="price">Custom Pricing</span>
+<button class="rent-btn">Book</button>
+</div>
+
+</section>
+
+<form id="contact-form">
+
+<h3>Booking Request</h3>
+
+<label>Name</label><br>
+<input id="name" required><br><br>
+
+<label>Email</label><br>
+<input id="email" type="email" required><br><br>
+
+<label>Event Date</label><br>
+<input id="date" type="date" required><br><br>
+
+<label>Items Needed</label><br>
+<textarea id="items" placeholder="50 chairs, 8 tables..." required></textarea><br><br>
+
+<button type="submit">Send Booking</button>
+
+<div class="success" id="successMsg">
+✅ Booking request ready! Your email app will open.
+</div>
+
+</form>
+
+<script>
+
+/* scroll when clicking book */
+document.querySelectorAll('.rent-btn').forEach(btn=>{
+btn.onclick=()=>{
+document.getElementById('contact-form').scrollIntoView({behavior:'smooth'});
+};
+});
+
+/* REAL booking system (no server needed) */
+document.getElementById('contact-form').addEventListener('submit',function(e){
+
+e.preventDefault();
+
+let name=document.getElementById('name').value.trim();
+let email=document.getElementById('email').value.trim();
+let date=document.getElementById('date').value;
+let items=document.getElementById('items').value.trim();
+
+if(!name || !email || !date || !items){
+alert("Please fill all fields");
+return;
+}
+
+/* Opens user's email app */
+let subject="Booking Request - Aura Events";
+let body=`Name: ${name}
+Email: ${email}
+Date: ${date}
+Items: ${items}`;
+
+window.location.href=
+`mailto:agrawal.avisha04@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+document.getElementById('successMsg').style.display="block";
+
+});
+
+</script>
+
 </body>
 </html>
