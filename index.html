@@ -7,90 +7,97 @@
 <style>
 
 :root{
---brand:#c89b3c;
---dark:#1f2a38;
---light:#f6f8fb;
+--gold:#caa64b;
+--dark:#1c2430;
+--light:#f5f7fb;
 }
 
 body{
-font-family:'Segoe UI',sans-serif;
+font-family:Segoe UI, sans-serif;
 margin:0;
 background:var(--light);
-text-align:center;
+scroll-behavior:smooth;
 }
+
+/* HEADER */
 
 header{
-background:var(--dark);
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("decor.jpg") center/cover;
 color:white;
-padding:30px 20px;
+text-align:center;
+padding:90px 20px;
 }
 
-.logo{
-height:70px;
-margin-bottom:10px;
-}
+header h1{font-size:44px;margin:0}
+header p{opacity:.9;margin-top:10px}
 
-.services-container{
+/* SECTION STYLE */
+
+section{padding:70px 20px;text-align:center}
+h2{color:var(--dark);margin-bottom:40px}
+
+/* CARDS */
+
+.container{
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:30px;
-padding:50px 20px;
+max-width:1100px;
+margin:auto;
 }
 
-.service-card{
+.card{
 background:white;
+width:300px;
 border-radius:14px;
-width:320px;
-padding:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+overflow:hidden;
 transition:.3s;
 }
 
-.service-card:hover{
-transform:translateY(-6px);
-}
+.card:hover{transform:translateY(-8px)}
 
-.service-card img{
+.card img{
 width:100%;
-height:210px;
+height:200px;
 object-fit:cover;
-border-radius:10px;
 }
 
-.price{
-display:block;
-font-weight:bold;
-font-size:18px;
-margin:12px 0;
-}
+.card-content{padding:18px}
+
+.price{font-weight:bold;margin:10px 0}
 
 button{
-background:var(--brand);
+background:var(--gold);
 color:white;
 border:none;
-padding:12px 22px;
+padding:12px 24px;
 border-radius:30px;
 cursor:pointer;
 font-size:15px;
+transition:.25s;
 }
 
 button:hover{
-opacity:.9;
+transform:scale(1.05);
+box-shadow:0 10px 18px rgba(0,0,0,.2);
 }
 
-form{
+/* FORMS */
+
+.form-box{
 background:white;
+max-width:450px;
+margin:30px auto;
 padding:30px;
 border-radius:14px;
-margin:40px auto;
-width:90%;
-max-width:420px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 input,textarea{
-width:92%;
+width:95%;
 padding:10px;
 margin-top:6px;
 border-radius:8px;
@@ -99,10 +106,17 @@ font-size:14px;
 }
 
 .success{
+display:none;
 color:green;
 font-weight:bold;
-margin-top:15px;
-display:none;
+margin-top:12px;
+}
+
+footer{
+background:var(--dark);
+color:white;
+text-align:center;
+padding:25px;
 }
 
 </style>
@@ -111,100 +125,152 @@ display:none;
 <body>
 
 <header>
-
-<img src="logo.png" class="logo" alt="Aura Events Logo">
-
-<h1>Aura Events Rentals</h1>
-<p>Elegant Chairs • Tables • Decor</p>
-
+<h1>Aura Events</h1>
+<p>Premium Rentals & Elegant Decor for Weddings and Events</p>
+<button onclick="scrollToSection('rentals')">View Rentals</button>
+<button onclick="scrollToSection('decor')">View Decor</button>
 </header>
 
-<section class="services-container">
+<!-- RENTALS -->
+<section id="rentals">
+<h2>Rental Equipment</h2>
 
-<div class="service-card">
+<div class="container">
+
+<div class="card">
 <img src="chair.jpg">
+<div class="card-content">
 <h3>Chair Rentals</h3>
-<span class="price">Starting $2.50</span>
-<button class="rent-btn">Book</button>
+<p>Elegant folding & wedding chairs</p>
+<div class="price">$2.50+</div>
+<button onclick="scrollToSection('rentals-book')">Book Chairs</button>
+</div>
 </div>
 
-<div class="service-card">
+<div class="card">
 <img src="table.jpg">
+<div class="card-content">
 <h3>Table Rentals</h3>
-<span class="price">Starting $10</span>
-<button class="rent-btn">Book</button>
+<p>Round, banquet & cocktail tables</p>
+<div class="price">$10+</div>
+<button onclick="scrollToSection('rentals-book')">Book Tables</button>
+</div>
 </div>
 
-<div class="service-card">
-<img src="decor.jpg">
-<h3>Decor Packages</h3>
-<span class="price">Custom Pricing</span>
-<button class="rent-btn">Book</button>
 </div>
-
 </section>
 
-<form id="contact-form">
+<!-- DECOR -->
+<section id="decor" style="background:#eef1f7">
+<h2>Decor Services</h2>
 
-<h3>Booking Request</h3>
+<div class="container">
+
+<div class="card">
+<img src="decor.jpg">
+<div class="card-content">
+<h3>Backdrop & Stage Decor</h3>
+<p>Custom elegant setups</p>
+<button onclick="scrollToSection('decor-book')">Book Decor</button>
+</div>
+</div>
+
+<div class="card">
+<img src="decor2.jpg">
+<div class="card-content">
+<h3>Centerpieces & Styling</h3>
+<p>Luxury table styling packages</p>
+<button onclick="scrollToSection('decor-book')">Book Styling</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- RENTAL BOOKING -->
+<section id="rentals-book">
+<h2>Book Rentals</h2>
+
+<div class="form-box">
+
+<form onsubmit="sendMail(event,'Rental Booking')">
 
 <label>Name</label><br>
-<input id="name" required><br><br>
+<input required id="rname"><br><br>
 
 <label>Email</label><br>
-<input id="email" type="email" required><br><br>
+<input type="email" required id="remail"><br><br>
 
-<label>Event Date</label><br>
-<input id="date" type="date" required><br><br>
+<label>Date</label><br>
+<input type="date" required id="rdate"><br><br>
 
 <label>Items Needed</label><br>
-<textarea id="items" placeholder="50 chairs, 8 tables..." required></textarea><br><br>
+<textarea required id="ritems"></textarea><br><br>
 
-<button type="submit">Send Booking</button>
+<button type="submit">Send Rental Request</button>
 
-<div class="success" id="successMsg">
-✅ Booking request ready! Your email app will open.
-</div>
+<div class="success">✔ Email ready to send!</div>
 
 </form>
 
+</div>
+</section>
+
+<!-- DECOR BOOKING -->
+<section id="decor-book" style="background:#eef1f7">
+<h2>Book Decor</h2>
+
+<div class="form-box">
+
+<form onsubmit="sendMail(event,'Decor Booking')">
+
+<label>Name</label><br>
+<input required id="dname"><br><br>
+
+<label>Email</label><br>
+<input type="email" required id="demail"><br><br>
+
+<label>Date</label><br>
+<input type="date" required id="ddate"><br><br>
+
+<label>Decor Details</label><br>
+<textarea required id="ddetails"></textarea><br><br>
+
+<button type="submit">Send Decor Request</button>
+
+<div class="success">✔ Email ready to send!</div>
+
+</form>
+
+</div>
+</section>
+
+<footer>
+© 2026 Aura Events LLC
+</footer>
+
 <script>
 
-/* scroll when clicking book */
-document.querySelectorAll('.rent-btn').forEach(btn=>{
-btn.onclick=()=>{
-document.getElementById('contact-form').scrollIntoView({behavior:'smooth'});
-};
-});
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
 
-/* REAL booking system (no server needed) */
-document.getElementById('contact-form').addEventListener('submit',function(e){
+function sendMail(e,type){
 
 e.preventDefault();
 
-let name=document.getElementById('name').value.trim();
-let email=document.getElementById('email').value.trim();
-let date=document.getElementById('date').value;
-let items=document.getElementById('items').value.trim();
+let inputs=e.target.querySelectorAll("input,textarea");
+let body=type+"\n\n";
 
-if(!name || !email || !date || !items){
-alert("Please fill all fields");
-return;
-}
-
-/* Opens user's email app */
-let subject="Booking Request - Aura Events";
-let body=`Name: ${name}
-Email: ${email}
-Date: ${date}
-Items: ${items}`;
+inputs.forEach(i=>{
+body+=i.previousElementSibling.innerText+": "+i.value+"\n";
+});
 
 window.location.href=
-`mailto:agrawal.avisha04@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+`mailto:agrawal.avisha04@gmail.com?subject=${encodeURIComponent(type)}&body=${encodeURIComponent(body)}`;
 
-document.getElementById('successMsg').style.display="block";
-
-});
+e.target.querySelector(".success").style.display="block";
+}
 
 </script>
 
