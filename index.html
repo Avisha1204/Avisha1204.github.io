@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aura Event</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aura Event</title>
 
 <style>
 
@@ -12,59 +12,66 @@
 body{
 margin:0;
 font-family:Segoe UI, sans-serif;
-background:#f6f7fb;
+background:#f5f7fb;
 }
 
 a{text-decoration:none;color:inherit}
 
-.container{max-width:1200px;margin:auto;padding:0 20px}
+h2{text-align:center;margin-top:60px}
 
 /* ---------- NAVBAR ---------- */
 
 nav{
-background:white;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 30px;
-box-shadow:0 2px 10px rgba(0,0,0,.05);
+padding:14px 28px;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,.06);
 position:sticky;
 top:0;
 z-index:1000;
 }
 
+/* LEFT: LOGO + TITLE */
 .logo{
+font-weight:700;
 font-size:22px;
-font-weight:bold;
+line-height:1.2;
 }
-
-.logo span{
+.logo small{
 display:block;
+font-weight:400;
 font-size:12px;
 color:#777;
-font-weight:normal;
 }
 
+/* RIGHT SIDE */
 .nav-right{
 display:flex;
-gap:25px;
 align-items:center;
+gap:22px;
+font-size:15px;
 }
 
-.email{color:#555;font-size:14px}
+.email{
+font-size:14px;
+color:#555;
+}
 
 .btn{
 background:#caa64b;
 color:white;
-padding:10px 18px;
-border-radius:25px;
+padding:9px 18px;
+border-radius:22px;
+font-weight:600;
 }
 
-/* ---------- HERO CAROUSEL ---------- */
+/* ---------- HERO SLIDER ---------- */
 
 .hero{
-height:70vh;
 position:relative;
+height:70vh;
 overflow:hidden;
 }
 
@@ -82,13 +89,13 @@ transition:1s;
 
 .hero-text{
 position:absolute;
-bottom:50px;
+bottom:40px;
 left:50%;
 transform:translateX(-50%);
 color:white;
 font-size:34px;
-background:rgba(0,0,0,.4);
-padding:15px 25px;
+background:rgba(0,0,0,.45);
+padding:16px 26px;
 border-radius:8px;
 }
 
@@ -96,18 +103,18 @@ border-radius:8px;
 
 .highlight{
 text-align:center;
-font-size:28px;
-padding:40px 20px;
+font-size:26px;
 font-weight:600;
+padding:45px 15px;
 }
 
-/* ---------- SERVICE TILES ---------- */
+/* ---------- TILES ---------- */
 
 .tiles{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
-padding:30px;
+padding:20px;
 max-width:1100px;
 margin:auto;
 }
@@ -128,13 +135,13 @@ height:170px;
 object-fit:cover;
 }
 
-.tile h3{padding:15px}
+.tile h3{padding:16px;text-align:center}
 
 /* ---------- REVIEWS ---------- */
 
 .reviews{
 background:#eef1f7;
-padding:60px 20px;
+padding:70px 20px;
 text-align:center;
 }
 
@@ -143,6 +150,7 @@ display:none;
 max-width:700px;
 margin:auto;
 font-style:italic;
+font-size:18px;
 }
 
 .review.active{display:block}
@@ -150,10 +158,10 @@ font-style:italic;
 /* ---------- INTRO ---------- */
 
 .intro{
-padding:70px 20px;
-text-align:center;
 max-width:800px;
 margin:auto;
+padding:70px 20px;
+text-align:center;
 }
 
 .intro ul{
@@ -165,9 +173,9 @@ margin-top:20px;
 .intro button{
 margin-top:20px;
 background:#caa64b;
+color:white;
 border:none;
 padding:12px 22px;
-color:white;
 border-radius:25px;
 }
 
@@ -198,21 +206,27 @@ padding:40px 20px;
 text-align:center;
 }
 
-footer a{display:block;margin:5px 0;color:#ddd}
+footer a{
+display:block;
+margin:5px 0;
+color:#ddd;
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- ✅ NAVBAR -->
 <nav>
+
 <div class="logo">
 Aura Event
-<span>Full Service Event Planning</span>
+<small>Full Service Event Planning</small>
 </div>
 
 <div class="nav-right">
+
 <div class="email">info@auraevent.com</div>
 
 <a href="planning.html">Event Planning & Decoration</a>
@@ -220,26 +234,29 @@ Aura Event
 <a href="work.html">Our Work</a>
 
 <a class="btn" href="planning.html">Get Started</a>
+
 </div>
 </nav>
 
-<!-- HERO -->
+<!-- ✅ HERO ROTATING IMAGES -->
 <div class="hero">
 
 <div class="slide active" style="background-image:url('hero1.jpg')"></div>
 <div class="slide" style="background-image:url('hero2.jpg')"></div>
 <div class="slide" style="background-image:url('hero3.jpg')"></div>
 
-<div class="hero-text">Aura Event Planning, Decoration & Rental</div>
+<div class="hero-text">
+Aura Event Planning, Decoration & Rental
+</div>
 
 </div>
 
-<!-- HIGHLIGHT -->
+<!-- ✅ TAGLINE -->
 <div class="highlight">
 Aura Event Planning, Decoration & Rental
 </div>
 
-<!-- SERVICE TILES -->
+<!-- ✅ SERVICE TILES -->
 <div class="tiles">
 
 <a class="tile" href="wedding.html">
@@ -274,18 +291,18 @@ Aura Event Planning, Decoration & Rental
 
 </div>
 
-<!-- REVIEWS -->
+<!-- ✅ REVIEW CAROUSEL -->
 <div class="reviews">
 
 <h2>Client Reviews</h2>
 
-<div class="review active">“Aura Events made our wedding magical and stress-free!”</div>
-<div class="review">“Beautiful decor and very professional team.”</div>
+<div class="review active">“Aura Events made our wedding magical and stress-free.”</div>
+<div class="review">“Beautiful decor and extremely professional service.”</div>
 <div class="review">“Everything looked stunning and perfectly organized.”</div>
 
 </div>
 
-<!-- INTRO -->
+<!-- ✅ INTRO -->
 <div class="intro">
 
 <h2>Elevating Every Moment</h2>
@@ -293,14 +310,14 @@ Aura Event Planning, Decoration & Rental
 <p>
 We believe that every celebration should be as unique as the person behind it.
 Whether you are dreaming a grand wedding or an intimate dinner party,
-we bring the vision, the décor and the ease.
+we bring the vision, the decor and the ease.
 </p>
 
 <p>Here are just some services we offer:</p>
 
 <ul>
 <li>Event design</li>
-<li>Event décor</li>
+<li>Event decor</li>
 <li>Event party rentals</li>
 <li>Budgeting</li>
 <li>Catering vendors</li>
@@ -314,7 +331,7 @@ we bring the vision, the décor and the ease.
 
 </div>
 
-<!-- CONTACT -->
+<!-- ✅ CONTACT FORM -->
 <div class="contact">
 
 <h2>Contact Us</h2>
@@ -331,7 +348,7 @@ we bring the vision, the décor and the ease.
 
 </div>
 
-<!-- FOOTER -->
+<!-- ✅ FOOTER -->
 <footer>
 
 <h3>Aura Event</h3>
@@ -340,8 +357,8 @@ we bring the vision, the décor and the ease.
 <a href="rentals.html">Party Rentals</a>
 <a href="work.html">Our Work</a>
 <a href="services.html">Services</a>
-<a href="#">Contact Us</a>
 <a href="#">About Us</a>
+<a href="#">Contact Us</a>
 
 <p>Follow us on social media</p>
 
@@ -349,7 +366,7 @@ we bring the vision, the décor and the ease.
 
 <script>
 
-/* HERO ROTATION */
+/* HERO SLIDER */
 let slides=document.querySelectorAll(".slide");
 let i=0;
 setInterval(()=>{
@@ -358,7 +375,7 @@ i=(i+1)%slides.length;
 slides[i].classList.add("active");
 },4000);
 
-/* REVIEW ROTATION */
+/* REVIEW SLIDER */
 let reviews=document.querySelectorAll(".review");
 let r=0;
 setInterval(()=>{
@@ -367,11 +384,10 @@ r=(r+1)%reviews.length;
 reviews[r].classList.add("active");
 },5000);
 
-/* CONTACT FORM EMAIL */
+/* CONTACT EMAIL */
 function sendMail(e){
 e.preventDefault();
-window.location.href=
-"mailto:info@auraevent.com?subject=Website Inquiry";
+window.location.href="mailto:info@auraevent.com?subject=Website Inquiry";
 }
 
 </script>
